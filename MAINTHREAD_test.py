@@ -7,6 +7,8 @@ import glob
 from torch.autograd import Variable
 import torch
 from utils.utils import *
+import urllib
+
 
 print("*****************************************\n"
       "This is the test code for NTIRE19-Dehaze\n"
@@ -36,6 +38,11 @@ save_path = 'result_{}_{}'.format(opt.model,device_label)
 checkdirctexist(save_path)
 
 model_path = os.path.join('model', "{}.pth".format(opt.model))
+
+if not os.path.exists(model_path):
+    modelpth = urllib.URLopener()
+    modelpth.retrieve("http://randomsite.com/file.gz", "file.gz")
+
 model = torch.load(model_path)["model"]
 
 image_list = glob.glob(os.path.join(opt.test, '*.png'))
