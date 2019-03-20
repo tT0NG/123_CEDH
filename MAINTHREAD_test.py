@@ -40,8 +40,7 @@ checkdirctexist(save_path)
 model_path = os.path.join('model', "{}.pth".format(opt.model))
 
 if not os.path.exists(model_path):
-    modelpth = urllib.URLopener()
-    modelpth.retrieve("http://randomsite.com/file.gz", "file.gz")
+    print("*The trained model is not downloaded*\nPlease visit: https://drive.google.com/file/d/1UXsd1hob9XhNxSIitd1KLoI-UnqL9THQ/view?usp=sharing\n to download the trained model and copy the pth file to ./model folder\n")
 
 model = torch.load(model_path)["model"]
 
