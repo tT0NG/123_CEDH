@@ -7,7 +7,7 @@ import glob
 from torch.autograd import Variable
 import torch
 from utils.utils import *
-import urllib
+import os
 
 
 print("*****************************************\n"

@@ -1,6 +1,11 @@
 import os, cv2
 import numpy as np
 
+def checkdirctexist(dirct):
+    if not os.path.exists(dirct):
+        os.makedirs(dirct)
+
+
 def get_image_for_save(img):
     img = img.data[0].numpy()
     img = img * 255.
